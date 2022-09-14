@@ -1,0 +1,45 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'timeConversion' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts STRING s as parameter.
+#
+
+def timeConversion(s):
+    hour = s[0:2]
+    am = False
+    if s[len(s)-2:] == "AM":
+        am = True
+    else: am = False
+    
+    if(am == False and int(hour) == 12):
+        hour = int(hour)
+    elif(am == False):    
+        hour = int(hour) + 12
+    
+    if((am == True) and (int(hour) == 12)):
+        return("00"+s[2:8])
+    else:
+        time = str(hour)+s[2:8]
+        return(time)
+    
+        
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = timeConversion(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
