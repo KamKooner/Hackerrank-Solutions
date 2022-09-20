@@ -1,0 +1,51 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'closestNumbers' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+
+def closestNumbers(arr):
+    miniDiff = abs(abs(arr[0])-abs(arr[1]))
+    arr = sorted(arr)
+    sln = []
+    
+    
+    for x in range(0,len(arr)-1):
+        if abs(abs(arr[x])-abs(arr[x+1])) <= miniDiff:
+            miniDiff = abs(abs(arr[x])-abs(arr[x+1]))
+    
+    
+    
+    
+    
+    
+    
+    for x in range(0,len(arr)-1):
+        if abs(abs(arr[x])-abs(arr[x+1])) <= miniDiff:
+            sln.append(arr[x])
+            sln.append(arr[x+1])
+    return sln
+            
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = closestNumbers(arr)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
