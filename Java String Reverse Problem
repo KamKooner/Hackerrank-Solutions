@@ -1,0 +1,42 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        
+        Scanner sc=new Scanner(System.in);
+        String A=sc.next();
+        int middle = A.length()/2;
+        
+        StringBuilder B = new StringBuilder();
+        if(A.length()%2==0){
+            B.append(A.substring(middle));
+            B = B.reverse();
+            
+            if(A.substring(0,middle).compareTo(B.toString()) == 0){
+                System.out.println("Yes");
+            }else{
+                System.out.println("No");
+            B.setLength(0);
+        }
+            
+        }
+        
+        
+        else{
+            B.append(A.substring(middle+1));
+            B = B.reverse();
+            
+            if(A.substring(0,middle).compareTo(B.toString()) == 0){
+                System.out.println("Yes");
+            }else{
+                System.out.println("No");
+            }   
+            B.setLength(0);
+        }
+    }
+}
+
+
+
